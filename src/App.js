@@ -6,14 +6,16 @@ import {
   Link
 } from "react-router-dom";
 import Home from './Components/Home/Home';
-import Products from './Components/Products/Products'
-import ServiceDetails from './Components/ServiceDetails/ServiceDetails';
-import About from './Components/About Us/About';
 import Error from './Components/Error/Error';
 import AuthProvider from './Context/AuthProvider';
 import Login from './Components/Login/Login';
-import SignUp from './Components/Login/SignUp';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import MyOrders from './Components/MyOrders/MyOrders';
+import Plans from './Components/Plans/Plans';
+import AddPlan from './Components/AddPlan/AddPlan'
+import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
+import ManageOrders from './Components/ManageOrders/ManageOrders';
+import AllPlans from './Components/AllPlans/AllPlans';
 
 
 
@@ -30,21 +32,29 @@ function App() {
           <Route path='/home'>
             <Home></Home>
           </Route>
-          <PrivateRoute path='/products'>
-            <Products></Products>
+         <Route path='/plans'>
+           <Plans></Plans>
+         </Route>
+         <Route path='/allPlans'>
+           <AllPlans></AllPlans>
+         </Route>
+          <PrivateRoute exact path='/placeOrder/:id'>
+            <PlaceOrder></PlaceOrder>
           </PrivateRoute>
-          <Route path='/about'>
-            <About></About>
-          </Route>
-          <PrivateRoute path='/services/:id'>
-           <ServiceDetails></ServiceDetails>
+          
+         <PrivateRoute path='/myOrders/:email'>
+           <MyOrders></MyOrders>
+           </PrivateRoute>
+          <PrivateRoute path='/allOrders'>
+          <ManageOrders></ManageOrders>
+          </PrivateRoute>
+          <PrivateRoute path='/addPlans'>
+            <AddPlan></AddPlan>
           </PrivateRoute>
           <Route path='/login'>
             <Login></Login>
             </Route>
-          <Route path='/signUp'>
-            <SignUp></SignUp>
-          </Route>
+          
           <Route path='*'>
             <Error></Error>
           </Route>

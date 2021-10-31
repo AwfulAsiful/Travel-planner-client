@@ -1,23 +1,13 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.footer-nav:hover{
+ color: white;
 }
-.footer-container{
-    padding: 1.8rem;
-}
-.icons{
-    color:white;
+.footer{
+    margin-top: 13rem;
     
 }
-.icons:hover{
-    color: gold;
+.footer hr{
+    color: green;
 }
-.footer-items{
-    list-style: none;
+.footer-nav{
     text-decoration: none;
-    color: white;
-    font-weight: bold;
-
-}
-.footer-items:hover{
-    color: gold;
 }

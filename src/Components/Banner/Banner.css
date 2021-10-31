@@ -1,8 +1,12 @@
 *{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 .banner-text{
-    padding-top: 4rem;
-    
+    margin-top: 4rem;
+    text-align: start;
+}
+.banner{
+    border-bottom: 2px solid green;
+    margin: 2rem 3rem ;
 }

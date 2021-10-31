@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "assignment-10-79f1f"
-  }
+    "default": "travel-planner-7d055",
+    "new project": "travel-planner-7d055"
+  },
+  "targets": {}
 }

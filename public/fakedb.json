@@ -1,0 +1,53 @@
+[
+    
+    {
+        "id": 101,
+        "title": "Australia",
+        "img": "https://i.ibb.co/qkGYWrd/australia.jpg",
+        "desc":"Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands. It is the largest country by area in Oceania and the world's sixth-largest country",
+        "shortDesc":"a country full of natural beauty and resources.There are lot's place for enthusiastic tourists to visit in this country.You should check it out",
+        "price":"500$"
+    },
+    {
+        "id": 102,
+        "title": "Bangladesh",
+        "img": "https://i.ibb.co/zsFYjrW/bd.jpg",
+        "desc":"Bangladesh, to the east of India on the Bay of Bengal, is a South Asian country marked by lush greenery and many waterways. Its Padma (Ganges), Meghna and Jamuna rivers create fertile plains, and travel by boat is common. On the southern coast, the Sundarbans, an enormous mangrove forest shared with Eastern India, is home to the royal Bengal tiger.",
+        
+        "shortDesc":"a country full of natural beauty and resources.There are lot's place for enthusiastic tourists to visit in this country.You should check it out",
+        "price":"600$"
+
+    },
+    {
+        "id": 103,
+        "title": "Dubai",
+        "img": "https://i.ibb.co/dBVxbL7/dubai.jpg",
+        "desc":"Dubai is a city and emirate in the United Arab Emirates known for luxury shopping, ultramodern architecture and a lively nightlife scene. Burj Khalifa, an 830m-tall tower, dominates the skyscraper-filled skyline. At its foot lies Dubai Fountain, with jets and lights choreographed to music. On artificial islands just offshore is Atlantis, The Palm, a resort with water and marine-animal parks.",
+        "shortDesc":"a city full of skyscrapers.There are lot's place for enthusiastic tourists to visit in this country.You should check it out",
+        "price":"700$"
+    },
+    {
+        "id": 104,
+        "title": "Greece",
+        "img": " https://i.ibb.co/xYY8rFB/greece.jpg",
+        "desc":"Greece is a country in southeastern Europe with thousands of islands throughout the Aegean and Ionian seas. Influential in ancient times, it's often called the cradle of Western civilization. Athens, its capital, retains landmarks including the 5th-century B.C. Acropolis citadel with the Parthenon temple. Greece is also known for its beaches, from the black sands of Santorini to the party resorts of Mykonos",
+        "shortDesc":"a country full of natural beauty and resources.There are lot's place for enthusiastic tourists to visit in this country.You should check it out",
+        "price":"800$"
+    },
+    {
+        "id": 105,
+        "title": "Rome",
+        "img": "https://i.ibb.co/JRNTGJ9/rome.jpg",
+        "desc":"Rome is the capital city of Italy. It is also the capital of the Lazio region, the centre of the Metropolitan City of Rome, and a special comune named Comune di Roma Capitale.",
+        "shortDesc":"a city full of ancient history and monuments.There are lot's place for enthusiastic tourists to visit in this country.You should check it out",
+        "price":"900$"
+    },
+    {
+        "id": 106,
+        "title": "Thailand",
+        "img": " https://i.ibb.co/Tq1Yjgs/thailand.jpg",
+        "desc":"Thailand is a Southeast Asian country. It's known for tropical beaches, opulent royal palaces, ancient ruins and ornate temples displaying figures of Buddha. In Bangkok, the capital, an ultramodern cityscape rises next to quiet canalside communities and the iconic temples of Wat Arun, Wat Pho and the Emerald Buddha Temple (Wat Phra Kaew). Nearby beach resorts include bustling Pattaya and fashionable Hua Hin. ",
+        "shortDesc":"a country full of natural beauty and resources.There are lot's place for enthusiastic tourists to visit in this country.You should check it out",
+        "price":"1000$"
+    }
+]

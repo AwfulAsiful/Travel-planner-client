@@ -1,51 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import useFirebase from '../../Hooks/useFirebase';
 import './MenuBar.css'
 
 const MenuBar = () => {
-  const {user, logOut}=useAuth();
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container">
-          <h3 className="navbar-brand fw-bold fs-2" >MedEasy</h3>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-5 mb-2 mb-lg-0 ">
-             <Link to='/home' className="nav-item">
-             <li >
-                Home
-              </li>
-             </Link>
-             <Link to='/products' className="nav-item">
-             <li >
-                Products
-              </li>
-             </Link >
-             <Link to='/about' className="nav-item">
-                About Us
-                </Link>
-              {
-                user?.email?
-                <button onClick={ logOut} className="btn btn-dark mx-2">Logout</button>
-                :<Link to='/login' className="nav-item">
-                <li>Login</li>
-            </Link>
+  const{user,logOut}=useAuth()
 
-              }
-              {
-                user?.email? <li className="nav-item">{user.displayName}</li> :<Link to='/signUp' className="nav-item"><button className="btn btn-warning">Register</button></Link>
-              }
-              
-                
-              
-            </ul>
-            
-          </div>
+
+    return (
+        <div className="container-fluid bg-light py-2">
+            <div className="row">
+              <div className="col-md-4">
+                <h3 className="fw-bold">Travel Planner</h3>
+              </div>
+              <div className="col-md-8 d-flex justify-content-end
+              ">
+                <Link to='/home' className="items">
+                  <li>Home</li>
+                </Link>
+                <Link to='/allPlans' className="items">
+                  <li>Our Plans</li>
+                </Link>
+                <li className="items">
+                  {
+                    user?.email?(<div className='d-flex'>
+                      <div className='me-2'><Link to={`/myOrders/${user?.email}`} className='items'>
+                      <p>My Orders</p>
+                    </Link></div>
+                   <div className='me-2'> 
+                     <Link to='/allOrders'className='items'>
+                     <p> Manage Orders</p>
+                    </Link>
+                    </div>
+                    <div className='me-1'>
+                    <Link to='/addPlans'className='items'>
+                      <p>CustomPlan</p>
+                    </Link>
+                    </div>
+                    </div>):(<span></span>)
+                  }
+                </li>
+                <li className="items">
+                  {
+                    user?.email?(<button className="btn btn-dark" onClick={logOut}>Logout</button>):(<Link to='/login'>
+                    <button className="btn btn-success">Login</button>
+                  </Link>)
+                  }
+                </li>
+                <li className="items">
+                  {user?.email?(user?.displayName):(<span></span>)}
+                </li>
+              </div>
+            </div>
         </div>
-      </nav>
     );
 };
 

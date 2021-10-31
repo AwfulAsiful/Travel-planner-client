@@ -1,46 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css'
-
 const Footer = () => {
     return (
-        <div className="footer-container bg-dark text-white ">
-            <div className="row">
-                <div className="col-md-6 text-start">
-                    <h2>MedEasy Ltd.</h2>
-                    <p className="text-small"> If you live in the United States or Canada, by agreeing to these Terms, you agree to resolve disputes with NOOB through binding arbitration (with very limited exceptions, not in court), and you waive certain rights to participate in class actions, as detailed in the Dispute Resolution section.</p>
+        <div className="bg-dark  fs-5 p-5 footer container-fluid">
+            <div className="d-flex justify-content-center fw-bold ">
+                
+                <div className="me-4 ">
+                    <Link to='/home' className='footer-nav text-success'>
+                        <h3>
+                            Home
+                        </h3>
+                    </Link>
                 </div>
-                <div className="col-md-6">
-                    <ul className="d-flex flex-column align-items-center footer-nav">
-                        <Link to='/home' className="footer-items">
-                        <li>Home</li>
-                        </Link>
-                        <Link to='/products' className="footer-items">
-                        <li>Products</li>
-                        </Link>
-                        <Link to='/about' className="footer-items">
-                        <li>About Us</li>
-                        </Link>
-                        <Link to='/home' className="footer-items">
-                        <li>Login</li>
-                        </Link>
-                        
-                    </ul>
+                <div className="me-4 ">
+                    <Link to='/allPlans' className='footer-nav text-success'>
+                    <h3>
+                            Our plans
+                        </h3>
+                    </Link>
                 </div>
+                <div className="me-4 ">
+                    <Link to='/faq' className='footer-nav text-success'>
+                        <h3>
+                            FAQs
+                        </h3>
+                    </Link>
+                </div>
+                
+                
             </div>
-            <div className="row">
-                <div className="col-md-6 text-start">
-                © 2017–2021 MedEasy Ltd.
+            <hr  />
+            <div className='text-success'>
+                © 2021 Travel Planner, Ltd
                 </div>
-                <div className="col-md-6">
-                    <div className="row ">
-                        <div className="col-md-4">
-                            <i className="fab fa-twitter fs-3 icons"></i></div>
-                        <div className="col-md-4"><i className="fab fa-facebook fs-3 icons"></i></div>
-                        <div className="col-md-4"><i className="fab fa-github fs-3 icons"></i></div>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };

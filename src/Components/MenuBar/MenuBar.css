@@ -1,14 +1,10 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.nav-item{
-    margin-right: 2rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-    list-style: none;
+.items{
     text-decoration: none;
-    color: black;
+    list-style: none;
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+    color: gray;
 }
-.nav-item:hover{
-    color: rgb(240, 206, 18);
+.items:hover{
+    color: green;
 }

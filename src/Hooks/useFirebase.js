@@ -1,114 +1,91 @@
 import React, { useEffect, useState } from 'react';
-import {
-  getAuth,
-  signInWithPopup,
-  signOut,
-
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendEmailVerification,
-  updateProfile
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import initializeAuthentication from '../Components/Firebase/firebase.init';
+
 
 initializeAuthentication()
 const useFirebase = () => {
-  // all state here
-  const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+    //States
+    const[user,setUser]=useState({})
+    const[isLoading,setIsLoading]=useState(true)
+    const auth=getAuth()
+    const provider=new GoogleAuthProvider()
 
-  //provider
-  const googleProvider = new GoogleAuthProvider();
-  const auth = getAuth();
+  
 
-  // google sing in
-  const singInUsingGoogle = () => {
-    return signInWithPopup(auth, googleProvider)
-  };
 
-  // user resister
-  const userRegister = (email, password,name) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+
+    //Google Sign in handle
+    const signInWithGoogle=()=>{
+        return signInWithPopup(auth,provider)
+       
+    }
+
+    // Registering new user handle
+    const createAccountWithGoogle=(email,password)=>{
+      return createUserWithEmailAndPassword(auth,email,password)
+      .catch(()=>{
+        alert('Something Wrong Happened')
+      })
+      .finally(()=>setIsLoading(false))
+    }
+
+    const logInWithEmailAndPassword=(email,password)=>{
+        return signInWithEmailAndPassword(auth,email,password)
+        .catch(()=>{
+            alert('Something Wrong Happened')
+          })
+          .finally(()=>setIsLoading(false))
+    }
+    const updateName=(name)=>{
+        updateProfile(auth.currentUser,{
+            displayName: name
+
+        })
+        .then(()=>{
+            const newUser={...user,displayName:name}
+            setUser(newUser)
+        })
+        .catch((error)=>{
+            alert('Something Wrong Happened')
+        })
+    }
+    const logOut=()=>{
+        signOut(auth)
+        .then(()=>{
+            setUser({})
+        })
+        .catch((error)=>{
+            alert('Something Wrong Happened')
+        })
+        .finally(()=>setIsLoading(false))
+    }
+      //Reload issue
+      useEffect(()=>{
+        const unsubscribe=onAuthStateChanged(auth,(user)=>{
+            if(user){
+                setUser(user);
+            }
+            else{
+                setUser({})
+            }
+            setIsLoading(false)
+        })
+        return ()=> unsubscribe()
+    },[])
+
+    return {
+        user,setUser,
+        signInWithGoogle,
+        createAccountWithGoogle,
+        logInWithEmailAndPassword,
+        isLoading,
+        setIsLoading,
+        logOut,
+        updateName
+    }
         
-        setUserName(name)
-
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  // verify email
-  const verifyEmail = () => {
-    sendEmailVerification(auth.currentUser)
-      .then(result => {
-        console.log(result);
-      });
-  }
-
-  // set user name
-  const setUserName = (name) => {
-    updateProfile(auth.currentUser, { displayName: name })
-      .then((result) => { }
-      )
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }
-
-
-  // user login
-  const userLogin = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  // logout
-  const logOut = () => {
-    setIsLoading(true);
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      })
-      .finally(() => setIsLoading(false));
-  };
-
-
-
-  // observe user
-  useEffect(() => {
-    const unsubscribed = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser({});
-      }
-      setIsLoading(false);
-    });
-    return () => unsubscribed;
-  }, []);
-  return {
-    user,
-    singInUsingGoogle,
-    logOut,
-    userRegister,
-    userLogin,
-    isLoading
-  }
-};
+    
+}
 
 export default useFirebase;
